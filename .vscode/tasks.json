@@ -1,0 +1,44 @@
+{
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "C/C++: g++.exe build active file",
+            "command": "E:\\Environment\\mingw-w64\\i686-8.1.0-posix-dwarf-rt_v6-rev0\\mingw32\\bin\\g++.exe",
+            "args": [   //传入命令行参数文本
+                "-g",       //"-g"产生调试信息,"-c"编译中间目标文件
+                "${file}",   
+
+                "-I",       //"-I"指定链接文件，告诉vscode需要链接哪些文件
+                "${fileDirname}\\include",     //包含头文件的文件夹，而不是头文件本身
+                "${fileDirname}\\include\\LinkedList.cpp",      //头文件和源文件都需要链接
+
+                "-o",       //"-o"生成指定命名的可执行文件
+                "${fileDirname}\\Tool\\${fileBasenameNoExtension}.exe",
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": false,
+                "reveal": "never",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true
+            }
+        }
+    ],
+    "version": "2.0.0"
+}
+
+
+//task.json的作用是告诉vscode如何构建（build）和编译程序，
+//类似于执行gcc -g main.c -o main的命令，需要注意的是tasks.json和
+//launch.json的"preLaunchTask"参数值需要保持一致。

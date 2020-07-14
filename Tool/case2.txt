@@ -1,0 +1,3 @@
+"${fileDirname}\\LinkedList.cpp",
+
+"${workspaceFolder}/Data structure/**"

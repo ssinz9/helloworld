@@ -1,0 +1,53 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "g++.exe - 生成和调试活动文件",
+            "type": "cppdbg",
+            "logging": {
+                "moduleLoad": false,
+                "engineLogging": false,
+                "exceptions": false,
+                "traceResponse": false,
+                "trace": false,
+                "programOutput": true
+            },
+            "request": "launch",
+            "program": "${fileDirname}\\Tool\\${fileBasenameNoExtension}.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "avoidWindowsConsoleRedirection": false,
+            "externalConsole": false,   
+            "showDisplayString": false,
+            "MIMode": "gdb",
+            "internalConsoleOptions": "neverOpen",
+            "miDebuggerPath": "E:\\Environment\\mingw-w64\\i686-8.1.0-posix-dwarf-rt_v6-rev0\\mingw32\\bin\\gdb.exe",
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "C/C++: g++.exe build active file"
+        }
+    ]
+    
+}
+
+
+//vscode本身是一个轻量级的文本编辑器，但扩展插件可以将vscode拓展成功能齐全的IDE，
+//主要就是靠task.json和launch.json。
+
+//launch.json文件的作用就是配置vscode的debug设置，
+//使得当我们按下F5时
+//去启动在WSL（Windows Subsystem for Linux，在win10上能运行原生Linux二进制可执行文件的兼容层）
+//中的GDB对程序进行调试。
+
+//所以task.json告诉vscode如何构建编译程序，之后由
+//launch.json告诉vscode如何用GDB去debug程序。
